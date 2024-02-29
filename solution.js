@@ -15,7 +15,12 @@ class Character {
 }
 
 class Hero extends Character {
-
+  constructor(name) {
+    super(name)
+  }
+  dodge() {
+    console.log(`${this.name} has dodged an enemy attack`);
+  }
 }
 
 const hero = new Hero('Batman')
