@@ -39,6 +39,7 @@ class Hero extends Character {
   heal(amount) {
     console.log(`${this.name} has healed by ${amount}`);
     this.health += amount;
+    console.log(`${this.name} has ${this.health} health remaining`);
   }
 }
 
@@ -64,8 +65,11 @@ hero.addItem('sword')
 enemy.addItem('potion')
 
 enemy.haymaker(hero)
+hero.heal(10)
 enemy.haymaker(hero)
+hero.heal(10)
 enemy.haymaker(hero)
+hero.heal(10)
 
 console.log(hero);
 console.log(enemy);
