@@ -36,6 +36,22 @@ class Adventurer extends Character {
     console.log(`${this.name} is scouting ahead...`);
     super.roll();
   }
+
+  duel(adventurer) {
+    while(this.health > 50 && adventurer.health > 50) {
+      const myRoll = this.roll()
+      const yourRoll = adventurer.roll()
+
+      if (myRoll > yourRoll) {
+        adventurer.health--
+      } else if (myRoll < yourRoll) {
+        this.health--
+      }
+    }
+
+    const winner = this.health > 50 ? this.name : adventurer.name
+    console.log(`${winner} WINS!`);
+  }
 }
 
 class Companion extends Character {
