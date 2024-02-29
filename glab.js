@@ -1,5 +1,5 @@
 class Character {
-  static MAX_HEALTH = 100
+  static MAX_HEALTH = 100;
 
   constructor(name) {
     this.name = name;
@@ -7,14 +7,14 @@ class Character {
     this.inventory = [];
   }
 
-  roll (mod = 0) {
+  roll(mod = 0) {
     const result = Math.floor(Math.random() * 20) + 1 + mod;
-    console.log(`${this.name} rolled a ${result}.`)
+    console.log(`${this.name} rolled a ${result}.`);
   }
 }
 
 class Adventurer extends Character {
-  static ROLES = ["Fighter", "Healer", "Wizard"]
+  static ROLES = ["Fighter", "Healer", "Wizard"];
 
   constructor(name, role) {
     console.log(Adventurer.ROLES);
@@ -23,9 +23,9 @@ class Adventurer extends Character {
       this.role = role; // Adventurers have specialized roles.
     } else {
       // throw new "This role does not exist"
-      let length = Adventurer.ROLES.length
-      let randomNum = Math.floor(Math.random(length))
-      this.role = Adventurer.ROLES[randomNum]
+      let length = Adventurer.ROLES.length;
+      let randomNum = Math.floor(Math.random(length));
+      this.role = Adventurer.ROLES[randomNum];
     }
     // Every adventurer starts with a bed and 50 gold coins.
     this.inventory.push("bedroll", "50 gold coins");
@@ -42,15 +42,34 @@ class Companion extends Character {
   constructor(name) {
     super(name);
     this.role = "Companion"; // Adventurers have specialized roles.
-    this.inventory = []
+    this.inventory = [];
   }
 }
 
+class AdventurerFactory {
+  constructor(role) {
+    this.role = role;
+    this.adventurers = [];
+  }
+  generate(name) {
+    const newAdventurer = new Adventurer(name, this.role);
+    this.adventurers.push(newAdventurer);
+  }
+  findByIndex(index) {
+    return this.adventurers[index];
+  }
+  findByName(name) {
+    return this.adventurers.find((a) => a.name === name);
+  }
+}
+
+
+// Main Program
+const healers = new AdventurerFactory("Healer");
+const robin2 = healers.generate("Robin");
+
 const robin = new Adventurer("Robin");
-robin.roll()
-robin.roll()
-robin.roll()
-robin.roll()
+robin.roll();
 
 robin.inventory = ["sword", "potion", "artifact"];
 robin.companion = new Companion("Leo");
