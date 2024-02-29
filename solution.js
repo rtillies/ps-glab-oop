@@ -33,7 +33,10 @@ class Enemy extends Character {
 }
 
 const hero = new Hero('Batman')
-const enemy = new Hero('Joker')
+const enemy = new Enemy('Joker')
+
+hero.addItem('sword')
+enemy.addItem('potion')
+
 console.log(hero);
 console.log(enemy);
-
