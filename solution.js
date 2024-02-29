@@ -4,10 +4,22 @@ class Character {
     this.health = 100;
     this.inventory = [];
   }
+  addItem(item) {
+    this.inventory.push(item)
+  }
+  addItems(items) {
+    items.forEach((item) => {
+      this.addItem(item)
+    })
+  }
 }
 
 const rich = new Character('Richard')
-rich.inventory = ['sword', 'potion', 'axe', 'shield']
+// rich.inventory = ['sword', 'potion', 'axe', 'shield']
+rich.addItem('sword')
+rich.addItem('shield')
+rich.addItem('potion')
+
 rich.companion = new Character('Bella')
 console.log(rich);
 
