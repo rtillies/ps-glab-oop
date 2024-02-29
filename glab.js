@@ -26,6 +26,14 @@ class Adventurer extends Character {
   }
 }
 
+class Companion extends Character {
+  constructor(name) {
+    super(name);
+    this.role = "Companion"; // Adventurers have specialized roles.
+    this.inventory = []
+  }
+}
+
 const robin = new Character("Robin");
 robin.roll()
 robin.roll()
