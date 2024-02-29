@@ -14,6 +14,13 @@ class Character {
   }
 }
 
+class Hero extends Character {
+
+}
+
+const hero = new Hero('Batman')
+console.log(hero);
+
 const rich = new Character('Richard')
 // rich.inventory = ['sword', 'potion', 'axe', 'shield']
 rich.addItem('sword')
